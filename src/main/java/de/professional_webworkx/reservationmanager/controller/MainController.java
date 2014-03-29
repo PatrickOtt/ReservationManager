@@ -11,12 +11,14 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -27,6 +29,9 @@ import de.professional_webworkx.reservationmanager.broker.DataBroker;
 import de.professional_webworkx.reservationmanager.model.Reservation;
 import de.professional_webworkx.reservationmanager.util.CustomerNameComparatorASC;
 import de.professional_webworkx.reservationmanager.util.CustomerNameComparatorDESC;
+import de.professional_webworkx.reservationmanager.util.filter.CustomerNameFilter;
+import de.professional_webworkx.reservationmanager.util.filter.FilterUtils;
+import de.professional_webworkx.reservationmanager.util.filter.ReservationIDFilter;
 
 public class MainController implements Initializable {
 
@@ -55,6 +60,9 @@ public class MainController implements Initializable {
 	@FXML
 	private MenuItem sortDESC;
 	
+	@FXML
+	private MenuItem unDoFilter;
+	
 	// Reservation Table
 	@FXML
 	private TableView<Reservation> reservationTable;
@@ -74,6 +82,21 @@ public class MainController implements Initializable {
 	@FXML
 	private TableColumn<Reservation, BooleanProperty> reservationApproved;
 	
+	// Search
+	@FXML
+	private TextField searchField;
+	
+	@FXML
+	private Button searchBtn;
+	
+	@FXML
+	private CheckBox checkBoxResId;
+	
+	@FXML
+	private CheckBox checkBoxCustomer;
+	
+	@FXML
+	private CheckBox checkBoxCheckIn;
 	
 	private List<Reservation> reservations = new ArrayList<Reservation>();
 	
@@ -151,6 +174,48 @@ public class MainController implements Initializable {
 				System.exit(0);
 			}
 		});
+		
+		unDoFilter.setOnAction(new EventHandler<ActionEvent>() {
+			
+			public void handle(ActionEvent e) {
+				unDoFilter();
+			}
+		});
+		
+		searchBtn.setOnAction(new EventHandler<ActionEvent>() {
+			
+			public void handle(ActionEvent e) {
+				String query = searchField.getText();
+				ObservableList<Reservation> items = reservationTable.getItems();
+				ObservableList<Reservation> result= FXCollections.emptyObservableList();
+				List<Reservation> filteredList = new ArrayList<Reservation>();
+				
+				if(checkBoxResId.selectedProperty().get()) {
+					filteredList = FilterUtils.applyFilter(items, new ReservationIDFilter(query));
+				}
+				if(checkBoxCustomer.selectedProperty().get()) {
+					filteredList = FilterUtils.applyFilter(items, new CustomerNameFilter(query));
+				}
+				
+				reservationTable.getItems().clear();
+				result = FXCollections.observableList(filteredList);
+				reservationTable.getItems().addAll(result);
+			}
+		});
 	}
-
+	
+	private void unDoFilter() {
+		// clear all TableItems 
+		reservationTable.getItems().clear();
+		
+		// fetch all reservations from database and add them to the table
+		reservationTable.getItems().addAll(dataBroker.getAllReservations());
+		
+		checkBoxCheckIn.setSelected(false);
+		checkBoxCustomer.setSelected(false);
+		checkBoxResId.setSelected(false);
+		
+		searchField.clear();
+		
+	}
 }

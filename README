@@ -1,21 +1,18 @@
-Willkommen zum dritten Teil!
+Willkommen zum Teil 4.
 
-Heute bauen wir uns ganz schnell eine aufsteigende und absteigende Sortierung der Liste.
+Nun wollen wir noch etwas an Filtermöglichkeiten hinzufügen, so soll
+unser Mitarbeiter an der Rezeption beispielsweise nach ReservierungsIDs,
+Kundenamen oder Checkin Datum filtern können.
 
-Hierzu habe ich bereits ein Menu hinzugefügt, ich zeig das kurz.
+Hierzu bauen wir uns nun ein paar Klassen und 1 Interface,
 
-Im Controller sind die entsprechenden MenuItems auf schon mit @FXML annotiert und wir können zugreifen.
-Da ich hier im Eclipse noch keinen Lambda Support installiert habe, sortieren wir mit herkömmlichen 
-Comparatoren.
+vorher gehen wir noch kurz in den SceneBuilder und zeichnen und die
+benötigten Komponenten in unser fxml File.
 
-Okay, die Comparatoren sind ja leicht nachzuvollziehen. Hier muss nur auf die richtige Rückgabe
-von 1 oder -1 geschaut werden, damit man die entsprechende Sortierung erreicht.
+Die Oberfläche ist nun um die notwendigen Komponenten erweitert. 
+Annotieren wir sie im MainController.
 
-exitMenuItem ist zum Beenden der Anwendung, damit, falls noch nicht geschehen, auch der
-EntityManager geschlossen wird.
+Versuchen wir das ganze mal.
 
-Soviel dazu. Im nächsten Video fügen wir dem Suchfeld etwas Funktionalität hinzu und
-schauen uns an, welche Filtermöglichkeiten wir brauchen bzw. brauchen könnten und
-werden diese implementieren.
 
-Danke fürs reinschauen!
+Vielen Dank fürs reinschauen und bis zum nächsten Mal.

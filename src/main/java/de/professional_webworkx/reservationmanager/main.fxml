@@ -13,7 +13,10 @@
 <DatePicker fx:id="checkIn" layoutX="107.0" layoutY="119.0" />
 <DatePicker fx:id="checkOut" layoutX="376.0" layoutY="119.0" />
 <TextField fx:id="name" layoutX="107.0" layoutY="83.0" prefHeight="26.0" prefWidth="197.0" />
-<Button fx:id="reserveBtn" layoutX="107.0" layoutY="184.0" mnemonicParsing="false" text="reservieren" /><Button fx:id="resetBtn" layoutX="233.0" layoutY="184.0" mnemonicParsing="false" text="abbrechen" /><ImageView fx:id="header" fitHeight="70.0" fitWidth="404.0" layoutX="38.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" /><Label layoutX="720.0" layoutY="55.0" prefHeight="16.0" prefWidth="50.0" text="Suche" /><TextField layoutX="770.3759765625" layoutY="50.0" /><MenuBar prefHeight="29.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml">
+<Button fx:id="reserveBtn" layoutX="107.0" layoutY="184.0" mnemonicParsing="false" text="reservieren" />
+<Button fx:id="resetBtn" layoutX="233.0" layoutY="184.0" mnemonicParsing="false" text="abbrechen" />
+<ImageView fx:id="header" fitHeight="70.0" fitWidth="404.0" layoutX="38.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+<MenuBar prefHeight="29.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml">
   <menus>
     <Menu mnemonicParsing="false" text="Datei">
       <items>
@@ -26,8 +29,7 @@
       </items>
     </Menu><Menu mnemonicParsing="false" text="Filter" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <items>
-<MenuItem mnemonicParsing="false" text="Sortieren (aufsteigend)" />
-<MenuItem mnemonicParsing="false" text="Sortieren (absteigend)" />
+<MenuItem fx:id="unDoFilter" mnemonicParsing="false" text="Filterung aufheben" />
 </items>
 </Menu>
     <Menu mnemonicParsing="false" text="Hilfe">
@@ -36,7 +38,7 @@
       </items>
     </Menu>
   </menus>
-</MenuBar>
+</MenuBar><TextField fx:id="searchField" layoutX="697.0" layoutY="42.0" prefHeight="26.0" prefWidth="316.0" promptText="Suchbegriff eingeben" /><CheckBox fx:id="checkBoxResId" layoutX="697.0" layoutY="74.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="124.0" text="ReservationID" /><CheckBox fx:id="checkBoxCustomer" layoutX="821.0" layoutY="74.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="Customer" /><CheckBox fx:id="checkBoxCheckIn" layoutX="913.0" layoutY="74.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="92.0" text="CheckIn" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" /><Button fx:id="searchBtn" layoutX="943.0" layoutY="106.0" mnemonicParsing="false" text="Suchen" />
 </children></Pane><Pane fx:id="tablePane" layoutY="258.0" prefHeight="510.0" prefWidth="1024.0">
 <children>
 <TableView fx:id="reservationTable" layoutX="3.0" layoutY="3.0" prefHeight="503.0" prefWidth="1017.0" xmlns:fx="http://javafx.com/fxml">
