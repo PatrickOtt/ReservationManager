@@ -1,18 +1,2 @@
-Willkommen zum Teil 4.
+Reservation Manager v1.0 - <b>Status: scripting</b>
 
-Nun wollen wir noch etwas an Filtermöglichkeiten hinzufügen, so soll
-unser Mitarbeiter an der Rezeption beispielsweise nach ReservierungsIDs,
-Kundenamen oder Checkin Datum filtern können.
-
-Hierzu bauen wir uns nun ein paar Klassen und 1 Interface,
-
-vorher gehen wir noch kurz in den SceneBuilder und zeichnen und die
-benötigten Komponenten in unser fxml File.
-
-Die Oberfläche ist nun um die notwendigen Komponenten erweitert. 
-Annotieren wir sie im MainController.
-
-Versuchen wir das ganze mal.
-
-
-Vielen Dank fürs reinschauen und bis zum nächsten Mal.
