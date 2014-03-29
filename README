@@ -1,0 +1,21 @@
+Willkommen zum dritten Teil!
+
+Heute bauen wir uns ganz schnell eine aufsteigende und absteigende Sortierung der Liste.
+
+Hierzu habe ich bereits ein Menu hinzugefügt, ich zeig das kurz.
+
+Im Controller sind die entsprechenden MenuItems auf schon mit @FXML annotiert und wir können zugreifen.
+Da ich hier im Eclipse noch keinen Lambda Support installiert habe, sortieren wir mit herkömmlichen 
+Comparatoren.
+
+Okay, die Comparatoren sind ja leicht nachzuvollziehen. Hier muss nur auf die richtige Rückgabe
+von 1 oder -1 geschaut werden, damit man die entsprechende Sortierung erreicht.
+
+exitMenuItem ist zum Beenden der Anwendung, damit, falls noch nicht geschehen, auch der
+EntityManager geschlossen wird.
+
+Soviel dazu. Im nächsten Video fügen wir dem Suchfeld etwas Funktionalität hinzu und
+schauen uns an, welche Filtermöglichkeiten wir brauchen bzw. brauchen könnten und
+werden diese implementieren.
+
+Danke fürs reinschauen!
